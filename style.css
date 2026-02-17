@@ -1,0 +1,13 @@
+/* Phase 1 & 2 Routing Logic */
+.page { display: none; }
+.page.active { display: block; }
+
+/* Authentication Display Logic */
+body.not-authenticated .role-logged-in { display: none; }
+body.authenticated .role-logged-out { display: none; }
+
+/* Admin Display Logic */
+.role-admin { display: none; }
+body.is-admin .role-admin { display: block; }
+
+main { min-height: 80vh; }
