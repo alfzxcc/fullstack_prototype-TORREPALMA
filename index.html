@@ -82,8 +82,66 @@
             <h2>Manage Accounts</h2>
             <table class="table"><thead id="accounts-head"></thead><tbody id="accounts-list"></tbody></table>
         </section>
-        
-        </main>
+        <section id="accounts-page" class="page">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Manage Accounts</h2>
+        <button class="btn btn-success" onclick="showAccountModal()">+ Add Account</button>
+    </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Verified</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="accounts-list"></tbody>
+        </table>
+    </section>
+
+    <section id="requests-page" class="page">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>My Requests</h2>
+            <button class="btn btn-primary" onclick="showRequestModal()">+ New Request</button>
+        </div>
+        <div id="request-items-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Items</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="requests-list"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <div id="request-modal" class="p-4 border bg-light position-fixed top-50 start-50 translate-middle shadow-lg d-none" style="z-index:1050; width: 400px;">
+        <h4>New Request</h4>
+        <select id="req-type" class="form-select mb-2">
+            <option value="Equipment">Equipment</option>
+            <option value="Leave">Leave</option>
+            <option value="Resources">Resources</option>
+        </select>
+        <div id="dynamic-items">
+            <div class="input-group mb-1">
+                <input type="text" class="form-control item-name" placeholder="Item Name">
+                <input type="number" class="form-control item-qty" placeholder="Qty" style="max-width: 80px;">
+            </div>
+        </div>
+        <button class="btn btn-sm btn-secondary mb-3" onclick="addRequestItem()">+ Add Item</button>
+        <div class="d-flex justify-content-end gap-2">
+            <button class="btn btn-outline-danger" onclick="closeRequestModal()">Cancel</button>
+            <button class="btn btn-primary" onclick="submitRequest()">Submit</button>
+        </div>
+    </div>
+
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
